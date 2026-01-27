@@ -4,16 +4,35 @@ terraform {
       source  = "kreuzwerker/docker"
       version = "~> 3.0"
     }
+    kafka = {
+      source = "Mongey/kafka"
+      version = "~> 0.7"
+    }
   }
 }
 
 provider "docker" {}
 
+provider "kafka" {
+  bootstrap_servers = ["localhost:9092"]
+  ca_cert           = file("../secrets/ca.crt")
+  client_cert       = file("../secrets/terraform-cert.pem")
+  client_key        = file("../secrets/terraform.pem")
+  tls_enabled       = true
+  timeout = 30
+}
+
+resource "kafka_topic" "test" {
+  name = "test-events"
+  replication_factor = 1
+  partitions = 3  
+}
+/*
 resource "docker_network" "kafka_network" {
   name = "kafka_network"
 }
 
-/*setup zookeeper docker image*/
+
 resource "docker_image" "zookeeper_image" {
   name = "confluentinc/cp-zookeeper:latest"
 }
@@ -53,5 +72,5 @@ resource "docker_container" "kafka" {
   networks_advanced {
     name = docker_network.kafka_network.name
   }
-}
+}*/
 
