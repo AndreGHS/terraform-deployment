@@ -5,14 +5,9 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:noble",
 	"features": {
-		"ghcr.io/devcontainers/features/aws-cli:1": {
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers/features/terraform:1": {
-			"version": "latest",
-			"tflint": "latest",
-			"terragrunt": "latest"
-		}
+		"ghcr.io/devcontainers/features/aws-cli:1": {},
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers/features/git-lfs:1": {}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
