@@ -17,8 +17,8 @@ if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_
     aws configure
 else
     echo "Configuring from environment variables..."
-    aws configure set aws_access_key_id "AKIA2XT5JSZDC2QZP72R"
-    aws configure set aws_secret_access_key "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"
+    aws configure set aws_access_key_id "FIX"
+    aws configure set aws_secret_access_key "FIX"
     aws configure set region "eu-north-1"
     aws configure set output "json"
     echo "✓ Configuration complete"
